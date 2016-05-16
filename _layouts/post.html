@@ -12,4 +12,13 @@ layout: default
     {{ content }}
   </div>
 
+  <div class="post-keywords" itemprop="keywords">
+    <span>Categories:</span>
+    <ul>
+      {% for category in page.categories %}
+      <li>{{ category }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
 </article>
