@@ -1,0 +1,71 @@
+---
+layout:     post
+title:      "DSL Testing (2016-08-09)"
+date:       2016-08-09 15:00:00 +1200
+categories: dsl
+published:  true
+---
+
+## Pre-incident information
+* Last [SpeedTest](http://www.speedtest.net/my-result/5461434787) before incident (2016-07-08 - approx one month previous)
+* Last sync recording (2016-01-24) - after installation
+  * ADSL Sync Type: ADSL2+
+  * Sync Rates:
+    * Upstream: 1328 Kbps
+    * Downstream: 19848 Kbps
+  * SNR Margin (dB):
+    * Upstream: 8.3
+    * Downstream: 6
+  * Line Attenuation (dB):
+    * Upstream: 10.5
+    * Downstream: 22
+
+
+## 2016-08-06
+Initial problems occur late evening.
+ADSL connection drops entirely, and then comes up with a much lower sync rate (~3-4Mbps down, ~100Kpbs up).
+
+
+## 2016-08-07
+Vodafone contacted via Twitter handle.
+ADSL connection auto-syncs as ADSL2+, at higher rate (~5Mbps down, ~175Kbps up).
+It had the following [sync speed](https://pbs.twimg.com/media/CpOuGhIUMAAlSzg.jpg), and [SpeedTest](http://www.speedtest.net/my-result/5534293693) results.
+
+
+## 2016-08-08
+Vodafone notifies via Twitter that it had made a change on their end (exchange I assume).
+This increases the sync down speed by ~1Mb.
+
+### Isolation test
+Vodafone also asked for an [Isolation Test](https://community.vodafone.co.nz/t5/Modems-Wi-Fi/Read-Me-Broadband-Troubleshooting-amp-Isolation-Test/td-p/90598).
+
+In my case this included:
+* Connect directly in to master phone socket, bypassing short in-wall cable (20cm approx)
+* Use BT to RJ11+BT ADSL line filter
+* Use short RJ11 cable to the ADSL router, from original ADSL router package
+
+This did not significantly (<1Mbps down) increase the sync, or SpeedTest results.
+
+The router was returned to the previous configuration.
+It had the following [sync speed](https://s3-ap-southeast-2.amazonaws.com/neilramsay-public/dsl/2016-08-08_18-52-20.png), and [SpeedTest](http://www.speedtest.net/my-result/5536476887)
+
+
+### Sync issues
+After the isolation test (15-20 minutes?), the router lost DSL sync.
+When it did resync, it was to a much slower speed, and would not load speed test.
+It synched with the most basic DSL modulation type, T1.413 Annex A.
+
+After multiple DSL setting reloads, and router restarts, the router refused to connect in either ADSL2, or ADSL2+ mode.
+The 'highest' mode connected was with G.dmt, but only through auto-detection.
+
+Forcing ADSL2, or ADSL2+, did not work until about 11pm.
+This was a greatly improved connection ([SpeedTest](http://www.speedtest.net/my-result/5536926940)).
+It is not entirely clear what caused the improvement.
+
+
+## 2016-08-09
+The connection has had a stable sync in ADSL2+ Annex A/L/M, with a sync speed of ~9.5Mbps down, and ~400Kbps up.
+[SpeedTest confirms similar speeds](http://www.speedtest.net/my-result/5538689779).
+
+However, many webpage loads fail. This may be because packets are being dropped - this still needs to be investigated.
+
