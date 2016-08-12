@@ -40,6 +40,7 @@ This increases the sync down speed by ~1Mb.
 Vodafone also asked for an [Isolation Test](https://community.vodafone.co.nz/t5/Modems-Wi-Fi/Read-Me-Broadband-Troubleshooting-amp-Isolation-Test/td-p/90598).
 
 In my case this included:
+
 * Connect directly in to master phone socket, bypassing short in-wall cable (20cm approx)
 * Use BT to RJ11+BT ADSL line filter
 * Use short RJ11 cable to the ADSL router, from original ADSL router package
@@ -69,3 +70,22 @@ The connection has had a stable sync in ADSL2+ Annex A/L/M, with a sync speed of
 
 However, many webpage loads fail. This may be because packets are being dropped - this still needs to be investigated.
 
+## 2016-08-11
+Vodafone requested that, if possible, I try a different modem.
+The current modem is a TP-Link Archer D7 (ADSL2+), and the old modem is a 3Com OfficeConnect 11g (ADSL1).
+
+With the ADSL1 modem, I got the following results:
+
+* Isolation Test - [Sync Speed](https://s3-ap-southeast-2.amazonaws.com/neilramsay-public/dsl/2016-08-11_16-57-36.png), [SpeedTest](http://www.speedtest.net/my-result/5544419227)
+* Regular Cabling - [Sync Speed](https://s3-ap-southeast-2.amazonaws.com/neilramsay-public/dsl/2016-08-11_16-46-57.png), [SpeedTest](http://www.speedtest.net/my-result/5544406812)
+
+The above tests produced similar speed results to my current modem, but a higher attenuation reading for the upstream bands.
+This difference appears to be a result of how ADSL1, and ADSL2 modems measure the attenuation ([reference](http://www.speedguide.net/faq/what-is-considered-good-dsl-line-attenuation-371)).
+The original measurements were from the ADSL2+ modem, so I will use those measurements in comparing attenuation changes.
+
+The key concern is that the line attenuation reading difference between pre-incident, and post-incident (based off my current router), is double for upstream, and is 50% greater for downstream.
+As line attenuation is a logarithmic function, each 3dB increase reduces the signal strength by half.
+With an attenuation increase of about 10dB, it means that we have lost 7/8ths of our previous signal strength ([reference](http://www.speedguide.net/faq/what-is-considered-good-dsl-line-attenuation-371)).
+
+I suspect that a wiring degradation (conductor damage, punch-down block, etc), somewhere between the exchange, and the jack-point in our house, has been stretched in the recent weather.
+This would reduce its conductivity, and increase the attenuation.
