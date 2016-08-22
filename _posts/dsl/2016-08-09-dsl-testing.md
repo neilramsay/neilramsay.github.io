@@ -89,3 +89,16 @@ With an attenuation increase of about 10dB, it means that we have lost 7/8ths of
 
 I suspect that a wiring degradation (conductor damage, punch-down block, etc), somewhere between the exchange, and the jack-point in our house, has been stretched in the recent weather.
 This would reduce its conductivity, and increase the attenuation.
+
+## 2016-08-17
+Chorus technician made contact.
+The technician noted that Vodafone advised him that the connection had been receiving pre-incident speeds for the previous 4 days (I had not checked recently) of about 19Mb down, 1Mb up.
+The technician will get in touch in a few days, where he may inspect the insulation between the aerial line connection to the house, and the master jackpoint. There may be some insulation problems there (based off basic visual inspections).
+
+The results from the next day testing were; [sync speed](https://s3-ap-southeast-2.amazonaws.com/neilramsay-public/dsl/2016-08-18_18-09-45.png), and [speed test](http://www.speedtest.net/my-result/5561133541).
+
+## 2016-08-22
+Chorus technician made contact again.
+The connection has been stable for a while, so he has asked me to contact Chorus again if there is a problem.
+I suspect it is weather dependent (rain, and strong northerlies), and there is no point attempting to locate a fault if it is not present and measurable.
+
