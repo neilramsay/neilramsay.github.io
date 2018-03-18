@@ -13,6 +13,7 @@ published:  true
 ### Ratios
 
 * 1L tap water
+* 1L pre-boiled water
 * 1 - 3 inches of grated ginger
 * 0.5 - 0.75 cups raw sugar
 * 1 lemon
